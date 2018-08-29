@@ -3,25 +3,46 @@
 buildscript {
     
     repositories {
+        mavenCentral()
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-beta01'
-        
+//        classpath 'com.kayo.jcenter:jcenter-plug:3.0.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
 allprojects {
     repositories {
+        mavenCentral()
         google()
         jcenter()
     }
+
+    tasks.withType(Javadoc) {//防止编码问题
+        options {
+            encoding 'UTF-8'
+            charSet 'UTF-8'
+            links 'http://docs.oracle.com/javase/7/docs/api'
+            options.addStringOption('Xdoclint:none', '-quiet')
+            options.addStringOption('encoding', 'UTF-8')
+            options.addStringOption('charSet', 'UTF-8')
+        }
+    }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}

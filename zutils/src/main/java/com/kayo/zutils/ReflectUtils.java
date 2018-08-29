@@ -18,6 +18,7 @@ import java.util.Map;
 /**
  * Kayo
  * 2018/7/27
+ * 反射工具类
  */
 public class ReflectUtils {
     private final Class<?> type;

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Kayo
  * 2018/7/27
+ * 命令工具类
  */
 public class ShellUtils {
     private static final String LINE_SEP = System.getProperty("line.separator");
